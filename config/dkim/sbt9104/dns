@@ -1,0 +1,29 @@
+
+Add this TXT record to the sbt9104 DNS zone.
+
+dec2019._domainkey    IN   TXT   v=DKIM1;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvsBNQmYc9TEgMVTyfx/ASXDB9rkOLv9EUuIoIv0EjCimUmnDAlTT+WUJQXOPsQYJ1EmkfpDMQJXdR/HkmaeEx1j0HEW/zjBuMujgoruEXww7fhfeUIeTUIHL87wABKxYSlwzsLwxKXr0yMEcdcMCb4xeWCUzYLTSqY1qhROSNgDfRGn0eTNPZPJ6maSb0NAECRoZwdsv72ciqaBb0YnaqB1k/Qad1LVg+0w9cGqwx9g43yh14ivYXJYZJGlYmRGCAyTaNNofZZ6v3imvvIkL2i7b7CEmkRMrlqEO2gQgXFI9pIZCiSuB3Qh+77WSZWEeQquHYwPwIVnQLw+xZuyJ+QIDAQAB
+
+
+BIND zone file formatted:
+
+dec2019._domainkey    IN   TXT (
+	"v=DKIM1;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvsBNQmYc9TEgMVTyfx/ASXDB9rkOLv9EUuIoIv0EjCimUmnDAlTT+WUJQXOPsQYJ1EmkfpDMQJXdR/HkmaeEx1j0HEW/zjBuMujgoruEXww7fhfeUIeTUIHL87wABKxYSlwzsLwxKXr0yMEcdcMCb4xeWCUzYLTSqY1qhROSNgDfRGn0eTNPZPJ6maSb0NAECRoZwdsv72ciqaBb0YnaqB1k/Qad1LVg+0w9cGqwx9g43yh14ivYXJYZJGlYmRGCAyTaNNofZZ6v3imvvIkL2i7b7CEmkRMrlqEO2gQgXFI9pIZCiSuB3Qh+77WSZWEeQquHYwPwIVnQLw+xZuyJ+QIDAQAB"
+        )
+
+Tell the world that the ONLY mail servers that send mail from this domain are DKIM signed and/or bear our MX and A records.
+
+With SPF:
+
+        SPF "v=spf1 mx a -all"
+        TXT "v=spf1 mx a -all"
+
+With DMARC:
+
+_dmarc  TXT "v=DMARC1; p=reject; adkim=s; aspf=r; rua=mailto:dmarc-feedback@sbt9104; ruf=mailto:dmarc-feedback@sbt9104; pct=100"
+
+For more information about DKIM and SPF policy,
+the documentation within each plugin contains a longer discussion and links to more detailed information:
+
+   haraka -h dkim_sign
+   haraka -h spf
+

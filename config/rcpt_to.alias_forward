@@ -1,0 +1,16 @@
+;{
+ ; "myfirstsmtp.dx.am": {
+ ;   "me@myfirstsmtp.dx.am": ["xyster000@gmail.com"]
+  ;}
+;}
+{
+    "accept_when_match" : true,
+    "discard_income_mail" : true,
+    "alias": {
+          "myfirstsmtp.dx.am": [
+            {
+                "local_name": "fwd.*",
+                "forward_to": "xyster000@gmail.com"
+            }]
+    }
+}
