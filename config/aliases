@@ -1,1 +1,1 @@
-  { "myfirstsmtp.dx.am" : { "action" : "drop" } } 
+  #{ "domain" : { "action" : "drop" } } 

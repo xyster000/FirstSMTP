@@ -1,29 +1,0 @@
-
-Add this TXT record to the myfirstsmtp.dx.am DNS zone.
-
-dec2019._domainkey    IN   TXT   v=DKIM1;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr0l+V3mcI/ySYb4DDazEwraw79C+9ImqgObOaoyXDro7KZQHTKWqwz+9hl1DIHe+EKzaDM8vxlCSZBi2o1Jh9w06fgRltRVnG36SvEccvYpiyt1fSi9QIM0O+WJYQ8K0ip+TOar92SDcyoW/mwzL8ppjWUnX8krFg/64mW+ej35P26TElLPNnnv74Px49RycLatW/DghJ3lHJ9o4m34x/UU+xGz60Lc7AfzkYhKE46Hdp05JMZcj0q+/tBvmcTKHLhR2VcLb7iyCW5EAFRFkWLIGq6C4ekrZgvAkVOke9Tv4LzHKafQCMJyGoeu95Ot+TDU7Nq7yV7llap7V7ti4BwIDAQAB
-
-
-BIND zone file formatted:
-
-dec2019._domainkey    IN   TXT (
-	"v=DKIM1;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr0l+V3mcI/ySYb4DDazEwraw79C+9ImqgObOaoyXDro7KZQHTKWqwz+9hl1DIHe+EKzaDM8vxlCSZBi2o1Jh9w06fgRltRVnG36SvEccvYpiyt1fSi9QIM0O+WJYQ8K0ip+TOar92SDcyoW/mwzL8ppjWUnX8krFg/64mW+ej35P26TElLPNnnv74Px49RycLatW/DghJ3lHJ9o4m34x/UU+xGz60Lc7AfzkYhKE46Hdp05JMZcj0q+/tBvmcTKHLhR2VcLb7iyCW5EAFRFkWLIGq6C4ekrZgvAkVOke9Tv4LzHKafQCMJyGoeu95Ot+TDU7Nq7yV7llap7V7ti4BwIDAQAB"
-        )
-
-Tell the world that the ONLY mail servers that send mail from this domain are DKIM signed and/or bear our MX and A records.
-
-With SPF:
-
-        SPF "v=spf1 mx a -all"
-        TXT "v=spf1 mx a -all"
-
-With DMARC:
-
-_dmarc  TXT "v=DMARC1; p=reject; adkim=s; aspf=r; rua=mailto:dmarc-feedback@myfirstsmtp.dx.am; ruf=mailto:dmarc-feedback@myfirstsmtp.dx.am; pct=100"
-
-For more information about DKIM and SPF policy,
-the documentation within each plugin contains a longer discussion and links to more detailed information:
-
-   haraka -h dkim_sign
-   haraka -h spf
-

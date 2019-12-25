@@ -1,6 +1,6 @@
 ;{
  ; "myfirstsmtp.dx.am": {
- ;   "me@myfirstsmtp.dx.am": ["xyster000@gmail.com"]
+ ;   "me@myfirstsmtp.dx.am": ["@gmail.com"]
   ;}
 ;}
 {
@@ -10,7 +10,7 @@
           "myfirstsmtp.dx.am": [
             {
                 "local_name": "fwd.*",
-                "forward_to": "xyster000@gmail.com"
+                "forward_to": "@gmail.com"
             }]
     }
 }
